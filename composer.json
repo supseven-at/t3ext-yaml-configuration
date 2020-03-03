@@ -5,6 +5,18 @@
 	"license": "GPL-2.0-only",
 	"authors": [
 		{
+			"name": "Josef Glatz",
+			"email": "j.glatz@supseven.at",
+			"role": "Developer",
+			"homepage": "https://www.supseven.at"
+		},
+		{
+			"name": "Volker Kemeter",
+			"email": "v.kemeter@supseven.at",
+			"role": "Developer",
+			"homepage": "https://www.supseven.at"
+		},
+		{
 			"name": "Michiel Roos (Initial development for TYPO3 =< 8.7)",
 			"email": "michiel@michielroos.com",
 			"role": "Developer",
@@ -15,12 +27,6 @@
 			"email": "jousch@gmail.com",
 			"role": "Developer",
 			"homepage": "https://jousch.com"
-		},
-		{
-			"name": "Josef Glatz",
-			"email": "j.glatz@supseven.at",
-			"role": "Developer",
-			"homepage": "https://www.supseven.at"
 		}
 	],
 	"require": {
