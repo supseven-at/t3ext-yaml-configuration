@@ -23,19 +23,19 @@ YAML Configuration
 			en
 
 	:Description:
-			Export and import any table to and from a YAML file. Generate TSConfig from YAML files.
+			Export and import any table to and from a YAML file.
 
 	:Keywords:
-			yaml, configuration, import, export, tsconfig
+			yaml, configuration, import, export
 
 	:Copyright:
-			MaxServ B.V.
+			Michiel Roos
 
 	:Author:
 			Michiel Roos
 
 	:Email:
-			michiel@maxserv.com
+			michiel@michielroos.com
 
 	:License:
 			This document is published under the Open Content License

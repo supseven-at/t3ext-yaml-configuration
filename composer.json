@@ -1,21 +1,40 @@
 {
-  "name": "maxserv/yaml_configuration",
-  "type": "typo3-cms-extension",
-  "description": "Export and import any table to and from a YAML file. Generate TSConfig from YAML files.",
-  "license": [
-    "GPL-2.0"
-  ],
-  "require": {
-    "typo3/cms-core": "^6.2 || ^8.7 || ^9.5",
-    "symfony/yaml": "2.6 - 4.99"
-  },
-  "replace": {
-    "yaml_configuration": "self.version",
-    "typo3-ter/yaml_configuration": "self.version"
-  },
-  "autoload": {
-    "psr-4": {
-      "MaxServ\\YamlConfiguration\\": "Classes/"
-    }
-  }
+	"name": "supseven/yaml-configuration",
+	"type": "typo3-cms-extension",
+	"description": "Configure your TYPO3 site using YAML files. Export and import any table to and from a YAML file.",
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Michiel Roos (Initial development for TYPO3 =< 8.7)",
+			"email": "michiel@michielroos.com",
+			"role": "Developer",
+			"homepage": "https://www.michielroos.com"
+		},
+		{
+			"name": "Josef Glatz",
+			"email": "jousch@gmail.com",
+			"role": "Developer",
+			"homepage": "https://jousch.com"
+		},
+		{
+			"name": "Josef Glatz",
+			"email": "j.glatz@supseven.at",
+			"role": "Developer",
+			"homepage": "https://www.supseven.at"
+		}
+	],
+	"require": {
+		"typo3/cms-core": "^9.5 || ^10",
+		"symfony/yaml": "2.6 - 4.99 || ^5"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "yaml_configuration"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Supseven\\YamlConfiguration\\": "Classes/"
+		}
+	}
 }
