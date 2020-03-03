@@ -7,8 +7,7 @@ Export and import any table to and from a YAML file.
 > It was refactored for TYPO3 9.5 by
 > [Josef Glatz](https://github.com/josefglatz/) in the source repository
 > and became forked afterwards. With this step, we can perfectly
-> continue to maintain the extension without external dependencies under
-> our vendor name.
+> continue to maintain the extension without external dependencies.
 
 [![Latest Stable Version](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/v/stable)](https://packagist.org/packages/supseven/yaml-configuration)
 [![Total Downloads](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/downloads)](https://packagist.org/packages/supseven/yaml-configuration)
@@ -45,6 +44,11 @@ found in the [documentation folder](Documentation/Index.rst).
 * Make a backup of your database before importing any YAML files
 
 ## License & Disclaimer
+
+### Initial development
+
+The `yaml_configuration` extension was initially developed by Michiel
+Roos. Thanks for work in that area!
 
 Copyright 2016 Michiel Roos
 
