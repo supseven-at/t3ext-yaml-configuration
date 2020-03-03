@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" date="2020-03-03T07:17:55+01:00">
+        <body>
+            <trans-unit id="status.0.title">
+                <source>Export successful</source>
+            </trans-unit>
+            <trans-unit id="status.0.message">
+                <source>The File was successfully exported and to %s in Your desired Extension Directory.</source>
+            </trans-unit>
+            <trans-unit id="status.1.title">
+                <source>Export folder not found</source>
+            </trans-unit>
+            <trans-unit id="status.1.message">
+                <source>The target folder was not found. (%s)</source>
+            </trans-unit>
+            <trans-unit id="status.255.title">
+                <source>Export successful</source>
+            </trans-unit>
+            <trans-unit id="status.255.message">
+                <source>The File was successfully exported and overriden to %s in Your desired Extension Directory.</source>
+            </trans-unit>
+            <trans-unit id="status.500.title">
+                <source>Export failure</source>
+            </trans-unit>
+            <trans-unit id="status.500.message">
+                <source>An Error occured during the export process.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

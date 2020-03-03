@@ -2,3 +2,5 @@
 /.idea
 .DS_Store
 /yaml_configuration*.zip
+Exports/*
+!.gitkeep

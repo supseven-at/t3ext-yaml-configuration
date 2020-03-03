@@ -79,3 +79,8 @@ THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR
 OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 _See [LICENSE](LICENSE) for more details._
+
+## Usage of the export Button
+
+Set the Extension Configuration for Your needs to override Extensionname, Path and Table. If You change the Extension 
+Name, You need to create the Export Folder or Configure a new one.
