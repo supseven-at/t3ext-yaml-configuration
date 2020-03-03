@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace MichielRoos\YamlConfiguration\Command;
+namespace Supseven\YamlConfiguration\Command;
 
 /**
  * This file is part of the "yaml_configuration" Extension for TYPO3 CMS.

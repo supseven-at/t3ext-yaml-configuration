@@ -17,11 +17,11 @@
  */
 return [
     'yaml:import' => [
-        'class' => \MichielRoos\YamlConfiguration\Command\ImportTableCommand::class,
+        'class' => \Supseven\YamlConfiguration\Command\ImportTableCommand::class,
         'schedulable' => false,
     ],
     'yaml:export' => [
-        'class' => \MichielRoos\YamlConfiguration\Command\ExportTableCommand::class,
+        'class' => \Supseven\YamlConfiguration\Command\ExportTableCommand::class,
         'schedulable' => false,
     ],
 ];
