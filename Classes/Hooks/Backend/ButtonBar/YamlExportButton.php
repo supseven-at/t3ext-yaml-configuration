@@ -17,7 +17,6 @@ class YamlExportButton
      * @param $params array
      * @param $buttonBar ButtonBar
      * @return mixed
-     * @throws \TYPO3\CMS\Backend\Routing\Exception\RouteNotFoundException
      */
     public function addYamlExportButton($params, &$buttonBar)
     {
