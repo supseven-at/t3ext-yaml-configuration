@@ -11,6 +11,7 @@ namespace Supseven\YamlConfiguration\Command;
  */
 
 use Doctrine\DBAL\Connection;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -195,6 +196,8 @@ class ExportTableCommand extends AbstractTableCommand
         $this->checkGivenFilepathBeforeExport();
         // Export the table
         $this->exportTable($io);
+
+        return Command::SUCCESS;
     }
 
     /**

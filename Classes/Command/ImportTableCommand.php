@@ -10,6 +10,7 @@ namespace Supseven\YamlConfiguration\Command;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -81,6 +82,8 @@ class ImportTableCommand extends AbstractTableCommand
         $this->informationalHeader($io, $input);
 
         $this->importData($io);
+
+        return Command::SUCCESS;
     }
 
     /**
