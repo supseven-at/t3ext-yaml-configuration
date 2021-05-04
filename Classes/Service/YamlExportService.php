@@ -38,6 +38,11 @@ class YamlExportService
     private $force = '';
 
     /**
+     * @var string
+     */
+    private $cliCommand = '';
+
+    /**
      * @var array
      */
     private $config = [];
@@ -71,7 +76,7 @@ class YamlExportService
             ]);
         }
 
-        CommandUtility::exec('/app/typo3cms yaml:export ' . $this->config['table'] . ' ' . $pathAndFileName .' '. $this->config['force'],
+        CommandUtility::exec($this->config['cliCommand'] . ' yaml:export ' . $this->config['table'] . ' ' . $pathAndFileName .' '. $this->config['force'],
             $output, $returnValue);
 
         $responseMessage = [
@@ -102,7 +107,7 @@ class YamlExportService
      * @param array $arguments
      * @return string|null
      */
-    private function getTranslation($returnValue, $key, $arguments = [])
+    private function getTranslation($returnValue, $key, $arguments = []): ?string
     {
         return LocalizationUtility::translate('status.'. $returnValue .'.'. $key, $this->config['extensionName'], $arguments) ?: LocalizationUtility::translate('status.'. $returnValue .'.'. $key, $this->extensionName, $arguments);
     }
@@ -120,6 +125,7 @@ class YamlExportService
             'extensionName' => $conf['extensionName'] ?: $this->extensionName,
             'path' => $conf['path'] ?: $this->path,
             'force' => $conf['force'] ?: $this->force,
+            'cliCommand' => $conf['cliCommand'] ?: $this->cliCommand,
         ];
     }
 }

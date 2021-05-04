@@ -1,0 +1,14 @@
+# cat=Export; type=string; label=Tabelle
+table = be_groups
+
+# cat=Export; type=string; label=Extension Name
+extensionName = yaml_configuration
+
+# cat=Export; type=string; label=Pfad
+path = Exports/
+
+# cat=Export; type=string; label=Force Override
+force = 1
+
+# cat=CLI; type=string; label=CLI command
+cliCommand = /app/public/typo3/sysext/core/bin/typo3
