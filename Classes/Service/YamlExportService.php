@@ -34,9 +34,9 @@ class YamlExportService
     private $table = 'be_groups';
 
     /**
-     * @var string
+     * @var bool
      */
-    private $force = '';
+    private $force = false;
 
     /**
      * @var string
@@ -75,13 +75,25 @@ class YamlExportService
                 'message' => $this->getTranslation(1, 'message', [ pathinfo($pathAndFileName)['dirname'] ]),
             ]);
         }
-
-        CommandUtility::exec($this->config['cliCommand'] . ' yaml:export ' . $this->config['table'] . ' ' . $pathAndFileName .' '. $this->config['force'],
+        // define basic export command
+        $command = $this->config['cliCommand'] . ' yaml:export ' . $this->config['table'] . ' ' . $pathAndFileName;
+        // add force-override flag if set
+        if ($this->config['force']) {
+            $command .= ' --force-override';
+        }
+        CommandUtility::exec($command,
             $output, $returnValue);
         $responseMessage = [
             'status' => $returnValue,
             'title' => $this->getTranslation($returnValue, 'title'),
-            'message' => $this->getTranslation($returnValue, 'message', [ $this->config['table'] .'.yaml' ]),
+            'message' => $this->getTranslation(
+                $returnValue,
+                'message',
+                [
+                    $this->config['table'] .'.yaml',
+                    pathinfo($pathAndFileName)['dirname'],
+                ]
+            ),
         ];
 
         return $this->sendResponse(new JsonResponse(), $responseMessage);
@@ -123,7 +135,7 @@ class YamlExportService
             'table' => $conf['table'] ?: $this->table,
             'extensionName' => $conf['extensionName'] ?: $this->extensionName,
             'path' => $conf['path'] ?: $this->path,
-            'force' => $conf['force'] ?: $this->force,
+            'force' => (bool)$conf['force'] ?: (bool)$this->force,
             'cliCommand' => $conf['cliCommand'] ?: $this->cliCommand,
         ];
     }
