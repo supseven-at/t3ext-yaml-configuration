@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" date="2021-05-04T15:51:52+02:00">
-    <body>
-      <trans-unit id="status.0.title" resname="status.0.title">
-        <source>Export successful</source>
-      </trans-unit>
-      <trans-unit id="status.0.message" resname="status.0.message">
-        <source>The File was successfully exported to %s in your desired extension directory.</source>
-      </trans-unit>
-      <trans-unit id="status.1.title" resname="status.1.title">
-        <source>Export folder not found</source>
-      </trans-unit>
-      <trans-unit id="status.1.message" resname="status.1.message">
-        <source>The target folder was not found. (%s)</source>
-      </trans-unit>
-      <trans-unit id="status.255.title" resname="status.255.title">
-        <source>Export successful</source>
-      </trans-unit>
-      <trans-unit id="status.255.message" resname="status.255.message">
-        <source>The File was successfully exported and overwritten to %s in your desired extension directory.</source>
-      </trans-unit>
-      <trans-unit id="status.500.title" resname="status.500.title">
-        <source>Export failure</source>
-      </trans-unit>
-      <trans-unit id="status.500.message" resname="status.500.message">
-        <source>An Error occured during the export process.</source>
-      </trans-unit>
-      <trans-unit id="status.127.title" resname="status.127.title">
-        <source>Command not found</source>
-      </trans-unit>
-      <trans-unit id="status.127.message" resname="status.127.message">
-        <source>It looks like the export command is not available.</source>
-      </trans-unit>
-    </body>
-  </file>
+ <file source-language="en" date="2021-05-04T17:47:53+02:00">
+  <body>
+   <trans-unit id="status.0.title" resname="status.0.title">
+    <source>Export successful</source>
+   </trans-unit>
+   <trans-unit id="status.0.message" resname="status.0.message">
+    <source>The File was successfully exported to %s in the directory %s.</source>
+   </trans-unit>
+   <trans-unit id="status.1.title" resname="status.1.title">
+    <source>Export folder not found</source>
+   </trans-unit>
+   <trans-unit id="status.1.message" resname="status.1.message">
+    <source>The target folder was not found. (%s)</source>
+   </trans-unit>
+   <trans-unit id="status.255.title" resname="status.255.title">
+    <source>Export successful</source>
+   </trans-unit>
+   <trans-unit id="status.255.message" resname="status.255.message">
+    <source>The File was successfully exported and overwritten to %s in your desired extension directory.</source>
+   </trans-unit>
+   <trans-unit id="status.500.title" resname="status.500.title">
+    <source>Export failure</source>
+   </trans-unit>
+   <trans-unit id="status.500.message" resname="status.500.message">
+    <source>An Error occured during the export process.</source>
+   </trans-unit>
+   <trans-unit id="status.127.title" resname="status.127.title">
+    <source>Command not found</source>
+   </trans-unit>
+   <trans-unit id="status.127.message" resname="status.127.message">
+    <source>It looks like the export command is not available.</source>
+   </trans-unit>
+  </body>
+ </file>
 </xliff>
