@@ -1,6 +1,9 @@
 # TYPO3 extension: yaml_configuration
 
-Export and import any table to and from a YAML file.
+## Features
+
+* Export and import any table to and from a YAML file.
+* Export a defined table to yaml in the TYPO3 backend interface.
 
 > This extension was initially a fork of
 > [Tuurlijk/t3ext-yaml-configuration (Branch task/9-5-lts)](https://github.com/Tuurlijk/t3ext-yaml-configuration/tree/task/9-5_lts).
@@ -9,10 +12,10 @@ Export and import any table to and from a YAML file.
 > and became forked afterwards. With this step, we can perfectly
 > continue to maintain the extension without external dependencies.
 
-[![Latest Stable Version](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/v/stable)](https://packagist.org/packages/supseven/yaml-configuration)
-[![Total Downloads](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/downloads)](https://packagist.org/packages/supseven/yaml-configuration)
-[![Latest Unstable Version](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/v/unstable)](https://packagist.org/packages/supseven/yaml-configuration)
-[![License](https://poser.pugx.org/sup7even/t3ext-yaml-configuration/license)](https://packagist.org/packages/supseven/yaml-configuration)
+[![Latest Stable Version](https://poser.pugx.org/supseven-at/t3ext-yaml-configuration/v/stable)](https://packagist.org/packages/supseven/yaml-configuration)
+[![Total Downloads](https://poser.pugx.org/supseven-at/t3ext-yaml-configuration/downloads)](https://packagist.org/packages/supseven/yaml-configuration)
+[![Latest Unstable Version](https://poser.pugx.org/supseven-at/t3ext-yaml-configuration/v/unstable)](https://packagist.org/packages/supseven/yaml-configuration)
+[![License](https://poser.pugx.org/supseven-at/t3ext-yaml-configuration/license)](https://packagist.org/packages/supseven/yaml-configuration)
 
 ## Installation
 
@@ -82,5 +85,6 @@ _See [LICENSE](LICENSE) for more details._
 
 ## Usage of the export Button
 
-Set the Extension Configuration for Your needs to override Extensionname, Path and Table. If You change the Extension 
-Name, You need to create the Export Folder or Configure a new one.
+Set the Extension Configuration for Your needs to override
+Extensionname, Path and Table. If You change the Extension Name, You
+need to create the Export Folder or Configure a new one.
