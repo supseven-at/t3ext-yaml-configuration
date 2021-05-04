@@ -23,14 +23,14 @@
 			"homepage": "https://www.michielroos.com"
 		},
 		{
-			"name": "Josef Glatz",
+			"name": "Josef Glatz (private)",
 			"email": "jousch@gmail.com",
 			"role": "Developer",
 			"homepage": "https://jousch.com"
 		}
 	],
 	"require": {
-		"typo3/cms-core": "^9.5 || ^10",
+		"typo3/cms-core": "^10",
 		"symfony/yaml": "2.6 - 4.99 || ^5"
 	},
 	"extra": {
