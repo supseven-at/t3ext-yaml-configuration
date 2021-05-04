@@ -7,6 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Exception;
+use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Core\Utility\CommandUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -49,15 +50,14 @@ class YamlExportService
 
     /**
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @return ResponseInterface
      */
-    public function export(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function export(ServerRequestInterface $request): ResponseInterface
     {
         try {
             $this->config = $this->getExtensionConfiguration();
         } catch (Exception $e) {
-            return $this->sendResponse($response, [
+            return $this->sendResponse(new JsonResponse(), [
                 'status' => '500',
                 'title' => 'Configuration Error',
                 'message' => $e->getMessage(),
@@ -69,7 +69,7 @@ class YamlExportService
         $pathAndFileName = ExtensionManagementUtility::extPath($this->config['extensionName']) . $this->config['path'] . $this->config['table'] . '.yaml';
 
         if (is_dir(pathinfo($pathAndFileName)['dirname']) === false) {
-            return $this->sendResponse($response, [
+            return $this->sendResponse(new JsonResponse(), [
                 'status' => 1,
                 'title' => 'Configuration Error',
                 'message' => $this->getTranslation(1, 'message', [ pathinfo($pathAndFileName)['dirname'] ]),
@@ -78,14 +78,13 @@ class YamlExportService
 
         CommandUtility::exec($this->config['cliCommand'] . ' yaml:export ' . $this->config['table'] . ' ' . $pathAndFileName .' '. $this->config['force'],
             $output, $returnValue);
-
         $responseMessage = [
             'status' => $returnValue,
             'title' => $this->getTranslation($returnValue, 'title'),
             'message' => $this->getTranslation($returnValue, 'message', [ $this->config['table'] .'.yaml' ]),
         ];
 
-        return $this->sendResponse($response, $responseMessage);
+        return $this->sendResponse(new JsonResponse(), $responseMessage);
     }
 
     /**
