@@ -83,7 +83,7 @@ class ImportTableCommand extends AbstractTableCommand
 
         $this->importData($io);
 
-        return Command::SUCCESS;
+        return 0;
     }
 
     /**
