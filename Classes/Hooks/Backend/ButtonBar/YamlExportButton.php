@@ -23,7 +23,8 @@ class YamlExportButton
         $buttons = $params['buttons'];
 
         if (
-            (!isset($buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0]) && !$buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0] instanceof LinkButton) ||
+            !($buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0] ?? false) ||
+            !$buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0] instanceof LinkButton ||
             (!isset($buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0]->getDataAttributes()['table']) || $buttons[ButtonBar::BUTTON_POSITION_LEFT][6][0]->getDataAttributes()['table'] !== 'be_groups')
         ) {
             return $buttons;
