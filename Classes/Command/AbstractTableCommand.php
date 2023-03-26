@@ -14,7 +14,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Yaml\Yaml;
+use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Package\PackageInterface;
@@ -53,6 +53,13 @@ class AbstractTableCommand extends Command
      * @var array
      */
     protected $tableColumnCache = [];
+
+    public function __construct(
+        protected YamlFileLoader $yamlFileLoader,
+        string $name = null
+    ) {
+        parent::__construct($name);
+    }
 
     /**
      * Initialize variables used in the rest of the command methods
@@ -251,7 +258,7 @@ class AbstractTableCommand extends Command
     {
         $configuration = null;
         if (!empty($configurationFile) && is_file($configurationFile)) {
-            $configuration = Yaml::parseFile($configurationFile);
+            $configuration = $this->yamlFileLoader->load($configurationFile);
         }
 
         return $configuration;
