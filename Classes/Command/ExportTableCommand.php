@@ -227,15 +227,15 @@ class ExportTableCommand extends AbstractTableCommand
                 $result->getRestrictions()->removeByType(HiddenRestriction::class);
             }
         }
-        $databaseRows = $result
+        $result = $result
             ->select('*')
             ->from($table)
-            ->executeQuery()
-            ->fetchAllAssociative();
+            ->executeQuery();
+        $rowCount = $result->rowCount();
         // Rows were found in the table
-        if (count($databaseRows)) {
+        if ($rowCount) {
             $explodedResult = [];
-            foreach ($databaseRows as $row) {
+            while ($row = $result->fetchAssociative()) {
                 $explodedRow = [];
                 foreach ($row as $column => $value) {
                     // If --use-only-columns option is used, the column is only added if it is part of the option value.
@@ -311,7 +311,7 @@ class ExportTableCommand extends AbstractTableCommand
             $yaml = Yaml::dump($dump, 20, $this->indentLevel);
         }
         // Generated YAML is written to file
-        if ($yaml !== '' && count($databaseRows) > 0) {
+        if ($yaml !== '' && $rowCount > 0) {
             $io->note('Export to ' . GeneralUtility::getFileAbsFileName($this->file));
             $persistYamlFile = GeneralUtility::writeFile(
                 $filePath = GeneralUtility::getFileAbsFileName($this->file),
@@ -320,7 +320,7 @@ class ExportTableCommand extends AbstractTableCommand
             if ($persistYamlFile) {
                 $io->listing(
                     [
-                        count($databaseRows) . ' records were exported.',
+                        $rowCount . ' records were exported.',
                     ]
                 );
                 $io->success('Successfully finished the export of ' . $table . ' into ' . GeneralUtility::getFileAbsFileName($this->file));
