@@ -197,7 +197,7 @@ class ExportTableCommand extends AbstractTableCommand
         // Export the table
         $this->exportTable($io);
 
-        return Command::SUCCESS;
+        return 0;
     }
 
     /**
