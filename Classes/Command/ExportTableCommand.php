@@ -398,7 +398,7 @@ class ExportTableCommand extends AbstractTableCommand
         $fileSystem = new Filesystem();
         $filePathDirectory = GeneralUtility::dirname($filePath);
         if (strpos($filePath, Environment::getPublicPath() . '/') !== false
-            && !GeneralUtility::getApplicationContext()->isDevelopment()) {
+            && !Environment::getContext()->isDevelopment()) {
             throw new \RuntimeException(
                 'Please specify an absolute file path outside of the web root.',
                 1543830137
