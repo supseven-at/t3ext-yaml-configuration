@@ -138,7 +138,7 @@ class ImportTableCommand extends AbstractTableCommand
                         ->from($table);
                     $whereClause = [];
                     foreach ($matchClauseParts as $matchClausePart) {
-                        $whereClause[] = $queryBuilder->expr()->andX(
+                        $whereClause[] = $queryBuilder->expr()->and(
                             $queryBuilder->expr()->eq(
                                 $matchClausePart[0],
                                 // @TODO: Use named parameters based on the column configuration in the DB
