@@ -1,6 +1,6 @@
 # TYPO3 extension: yaml_configuration
 
-## Features
+## Features of `supseven/yaml-configuration`
 
 * Export and import any table to and from a YAML file.
 * Export a defined table to yaml in the TYPO3 backend interface.
