@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Supseven\YamlConfiguration\Hooks\Backend\ButtonBar;
+namespace Supseven\YamlConfiguration\Backend\ButtonBar;
 
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\Components\Buttons\LinkButton;
