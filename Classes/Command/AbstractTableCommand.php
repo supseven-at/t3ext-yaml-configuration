@@ -19,6 +19,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Package\PackageInterface;
 use TYPO3\CMS\Core\Package\PackageManager;
+use TYPO3\CMS\Core\Service\DependencyOrderingService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class AbstractTableCommand extends Command
@@ -131,7 +132,12 @@ class AbstractTableCommand extends Command
      */
     protected function findYamlFiles(): array
     {
-        $activePackages = GeneralUtility::makeInstance(PackageManager::class)->getActivePackages();
+        $activePackages =
+            GeneralUtility::makeInstance(
+                PackageManager::class,
+                new DependencyOrderingService()
+            )
+                ->getActivePackages();
         $configurationFiles = [];
         foreach ($activePackages as $package) {
             if ($package->getPackageKey() === 'yaml-configuration' || $package->getPackageKey() === 'yaml_configuration') {
