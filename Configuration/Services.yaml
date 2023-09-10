@@ -19,7 +19,7 @@ services:
         command: 'yaml:import'
         schedulable: false
 
-  Supseven\YamlConfiguration\Backend\YamlExportButton:
+  Supseven\YamlConfiguration\Backend\ButtonBar\YamlExportButton:
     tags:
       - name: event.listener
         identifier: 'yaml-configuration/backend/yamlexportbutton'

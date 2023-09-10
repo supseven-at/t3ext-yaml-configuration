@@ -12,3 +12,6 @@ force = 1
 
 # cat=CLI; type=string; label=CLI command
 cliCommand = /app/public/typo3/sysext/core/bin/typo3
+
+# cat=Backend; type=boolean; label=Activate "Export Yaml File for be_groups" button
+showYamlExportButtonForBeGroup = 1
