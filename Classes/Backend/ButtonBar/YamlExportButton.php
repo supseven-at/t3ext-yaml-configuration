@@ -4,10 +4,12 @@ declare(strict_types=1);
 namespace Supseven\YamlConfiguration\Backend\ButtonBar;
 
 use Psr\Http\Message\ServerRequestInterface;
+use RuntimeException;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\Components\Buttons\GenericButton;
 use TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
@@ -53,7 +55,7 @@ class YamlExportButton
 
         // Add buttons
         foreach ($this->tables as $table => $options) {
-            if (!$this->isButtonEnabled($table) || !$this->isApplicableTable($table, $buttons)) {
+            if (!$this->isButtonEnabled($table) || !$this->isApplicableTable($table)) {
                 break;
             }
             // Generate Export button
@@ -79,9 +81,9 @@ class YamlExportButton
     /**
      * Check if button is enabled in extension configuration
      *
-     * @param string $configOption
+     * @param string $table
      * @return bool
-     * @noinspection PhpDocMissingThrowsInspection
+     * @throws ExtensionConfigurationPathDoesNotExistException
      */
     protected function isButtonEnabled(string $table): bool
     {
@@ -91,7 +93,7 @@ class YamlExportButton
                 trim($this->tables[$table]['extEmConfKey'])
             );
         } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 'EXT:yaml_configuration Configuration can not be accessed. Please set them up in the install tool: '
                 . $e->getMessage()
             );
@@ -107,7 +109,7 @@ class YamlExportButton
      * @param array $buttons
      * @return bool
      */
-    protected function isApplicableTable(string $table, array $buttons): bool
+    protected function isApplicableTable(string $table): bool
     {
         if (!array_key_exists('table', $this->getRequest()->getQueryParams())) {
             return false;
