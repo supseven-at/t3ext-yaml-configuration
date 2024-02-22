@@ -188,7 +188,7 @@ class ExportTableCommand extends AbstractTableCommand
      * @param OutputInterface $output
      * @return int|void|null
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         // Output information about the command
