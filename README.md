@@ -31,11 +31,11 @@ Or install it using composer:
 composer require supseven/yaml-configuration
 ```
 
-Or install latest master branach using composer:
+Or install latest main branch using composer:
 
 
 ```bash
-composer require supseven/yaml-configuration:dev-master
+composer require supseven/yaml-configuration:dev-main
 ```
 
 More information on [usage](Documentation/UserManual/Index.rst) and
