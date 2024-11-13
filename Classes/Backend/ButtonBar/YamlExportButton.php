@@ -71,8 +71,7 @@ class YamlExportButton
             // Add button directly to array instead of using ->getButtonBar as this needs too much memory
             $buttons[$options['buttonBarPosition']][$options['index']][] = $button;
         }
-        // @todo: Load Javascript with native ES6 modules instead of RequireJs (which is deprecated)
-        $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/YamlConfiguration/Backend');
+        $this->pageRenderer->loadJavaScriptModule('@supseven/yaml-configuration/Backend.js');
 
         // Persist final buttons configuration
         $event->setButtons($buttons);
