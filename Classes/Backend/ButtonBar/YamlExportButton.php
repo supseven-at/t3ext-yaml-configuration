@@ -72,7 +72,10 @@ class YamlExportButton
             // Add button directly to array instead of using ->getButtonBar as this needs too much memory
             $buttons[$options['buttonBarPosition']][$options['index']][] = $button;
         }
-        $this->pageRenderer->loadJavaScriptModule('@supseven/yaml-configuration/Backend.js');
+
+        if (isset($button)) { // include JavaScript only if a button was created
+            $this->pageRenderer->loadJavaScriptModule('@supseven/yaml-configuration/Backend.js');
+        }
 
         // Persist final buttons configuration
         $event->setButtons($buttons);
