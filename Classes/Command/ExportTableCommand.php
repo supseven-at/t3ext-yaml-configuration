@@ -91,8 +91,8 @@ class ExportTableCommand extends AbstractTableCommand
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         parent::initialize($input, $output);
-        $this->setSkipColumns(GeneralUtility::trimExplode(',', $input->getOption('skip-columns'), true));
-        $this->setExplodeColumns(GeneralUtility::trimExplode(',', $input->getOption('explode-columns'), true));
+        $this->setSkipColumns(GeneralUtility::trimExplode(',', $input->getOption('skip-columns') ?? '', true));
+        $this->setExplodeColumns(GeneralUtility::trimExplode(',', $input->getOption('explode-columns') ?? '', true));
         if ($input->getOption('use-only-columns')) {
             $this->setUseOnlyColumns(GeneralUtility::trimExplode(',', $input->getOption('use-only-columns'), true));
         }

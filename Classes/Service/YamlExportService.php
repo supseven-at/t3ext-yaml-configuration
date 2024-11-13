@@ -64,7 +64,7 @@ class YamlExportService
             ]);
         }
 
-        $output = '';
+        $output = [];
         $returnValue = 0;
         $pathAndFileName = ExtensionManagementUtility::extPath($this->config['extensionName']) . $this->config['path'] . $this->config['table'] . '.yaml';
 
