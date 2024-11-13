@@ -91,8 +91,8 @@ class ExportTableCommand extends AbstractTableCommand
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         parent::initialize($input, $output);
-        $this->setSkipColumns(GeneralUtility::trimExplode(',', $input->getOption('skip-columns'), true));
-        $this->setExplodeColumns(GeneralUtility::trimExplode(',', $input->getOption('explode-columns'), true));
+        $this->setSkipColumns(GeneralUtility::trimExplode(',', $input->getOption('skip-columns') ?? '', true));
+        $this->setExplodeColumns(GeneralUtility::trimExplode(',', $input->getOption('explode-columns') ?? '', true));
         if ($input->getOption('use-only-columns')) {
             $this->setUseOnlyColumns(GeneralUtility::trimExplode(',', $input->getOption('use-only-columns'), true));
         }
@@ -188,7 +188,7 @@ class ExportTableCommand extends AbstractTableCommand
      * @param OutputInterface $output
      * @return int|void|null
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         // Output information about the command
@@ -271,7 +271,7 @@ class ExportTableCommand extends AbstractTableCommand
                                         )
                                     )
                             )
-                            ->execute();
+                            ->executeQuery();
                         $usergroupsTitles = [];
                         foreach ($usergroups as $singleUserGroup) {
                             $usergroupsTitles[] = $singleUserGroup['title'];

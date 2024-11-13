@@ -83,16 +83,16 @@ class AbstractTableCommand extends Command
         $result = $this->queryBuilderForTable($table)
             ->select('*')
             ->from($table)
-            ->execute()
-            ->fetch();
+            ->executeQuery()
+            ->fetchAssociative();
         if ($result) {
             $columnNames = \array_keys($result);
             $this->tableColumnCache[$table] = $columnNames;
         } else {
             $result = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
-            $result = $result->getSchemaManager()->listTableColumns($table);
-            foreach ($result as $columnName => $columnProperties) {
-                $columnNames[] = $columnName;
+            $result = $result->getSchemaInformation()->introspectTable($table)->getColumns();
+            foreach ($result as $columnProperties) {
+                $columnNames[] = $columnProperties->getName();
             }
             $this->tableColumnCache[$table] = $columnNames;
         }

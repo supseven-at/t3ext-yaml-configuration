@@ -13,6 +13,7 @@ use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExis
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 
 /**
  * Class YamlExportButton
@@ -71,8 +72,10 @@ class YamlExportButton
             // Add button directly to array instead of using ->getButtonBar as this needs too much memory
             $buttons[$options['buttonBarPosition']][$options['index']][] = $button;
         }
-        // @todo: Load Javascript with native ES6 modules instead of RequireJs (which is deprecated)
-        $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/YamlConfiguration/Backend');
+
+        if (isset($button)) { // include JavaScript only if a button was created
+            $this->pageRenderer->loadJavaScriptModule('@supseven/yaml-configuration/Backend.js');
+        }
 
         // Persist final buttons configuration
         $event->setButtons($buttons);
@@ -111,11 +114,19 @@ class YamlExportButton
      */
     protected function isApplicableTable(string $table): bool
     {
-        if (!array_key_exists('table', $this->getRequest()->getQueryParams())) {
-            return false;
+        $typo3Version = VersionNumberUtility::convertVersionNumberToInteger(VersionNumberUtility::getCurrentTypo3Version());
+        if ($typo3Version < 13000000) { // old check befor TYPO3 v13
+            if (!array_key_exists('table', $this->getRequest()->getQueryParams())) {
+                return false;
+            }
+            return ($this->getRequest()->getAttributes()['routing']->getRoute()->getPath() === '/module/web/list') &&
+                ($this->getRequest()->getQueryParams()['table'] === $table);
         }
-        return ($this->getRequest()->getAttributes()['routing']->getRoute()->getPath() === '/module/web/list') &&
-            ($this->getRequest()->getQueryParams()['table'] === $table);
+
+        return (
+            $this->getRequest()->getAttributes()['routing']->getRoute()->getPath() === '/record/edit'
+            && isset($this->getRequest()->getQueryParams()['edit'][$table])
+        );
     }
 
     private function getRequest(): ServerRequestInterface
