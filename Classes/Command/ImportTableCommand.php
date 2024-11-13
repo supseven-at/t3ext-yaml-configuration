@@ -146,7 +146,7 @@ class ImportTableCommand extends AbstractTableCommand
                             )
                         );
                     }
-                    $row = $row->where(...$whereClause)->execute()->fetch();
+                    $row = $row->where(...$whereClause)->executeQuery()->fetchAssociative();
                 }
                 if ($row) {
                     // Update row as the matched row exists in the table

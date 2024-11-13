@@ -271,7 +271,7 @@ class ExportTableCommand extends AbstractTableCommand
                                         )
                                     )
                             )
-                            ->execute();
+                            ->executeQuery();
                         $usergroupsTitles = [];
                         foreach ($usergroups as $singleUserGroup) {
                             $usergroupsTitles[] = $singleUserGroup['title'];
